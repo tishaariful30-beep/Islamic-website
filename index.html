@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b16">
+<meta name="description" content="Quran and Tajweed — ইসলামিক অ্যাপ, তাজবীদ শিক্ষা ও গজল সংগ্রহ।">
+<title>Quran and Tajweed | Islamic Apps</title>
+
+<style>
+:root{
+  --bg:#07120f;
+  --bg2:#0b1d18;
+  --card:rgba(255,255,255,.075);
+  --card2:rgba(255,255,255,.045);
+  --text:#f5fff9;
+  --muted:#a9bbb4;
+  --primary:#22c55e;
+  --primary2:#16a34a;
+  --gold:#f2c94c;
+  --border:rgba(255,255,255,.11);
+  --shadow:0 18px 55px rgba(0,0,0,.30);
+}
+body.light{
+  --bg:#f4faf7;
+  --bg2:#e9f5ef;
+  --card:rgba(255,255,255,.82);
+  --card2:rgba(255,255,255,.65);
+  --text:#10251e;
+  --muted:#61736c;
+  --border:rgba(16,37,30,.10);
+  --shadow:0 18px 45px rgba(19,61,44,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:system-ui,-apple-system,"Noto Sans Bengali","Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 15% 5%,rgba(34,197,94,.16),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(242,201,76,.09),transparent 25%),
+    linear-gradient(145deg,var(--bg),var(--bg2));
+  color:var(--text);
+  min-height:100vh;
+  transition:.3s ease;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(18px);
+  background:rgba(7,18,15,.76);
+  border-bottom:1px solid var(--border);
+}
+body.light header{background:rgba(244,250,247,.78)}
+.nav{
+  min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800}
+.brand img{
+  width:45px;height:45px;border-radius:13px;object-fit:cover;
+  border:1px solid var(--border);box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+.brand span{font-size:18px}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.icon-btn{
+  width:42px;height:42px;border-radius:13px;border:1px solid var(--border);
+  background:var(--card);color:var(--text);cursor:pointer;
+  display:grid;place-items:center;font-size:19px;transition:.2s;
+}
+.icon-btn:hover{transform:translateY(-2px);border-color:rgba(34,197,94,.45)}
+
+/* Hero */
+.hero{padding:72px 0 45px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;
+  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);
+  color:#74e89a;font-weight:700;font-size:13px;margin-bottom:18px;
+}
+.hero h1{font-size:clamp(40px,7vw,72px);line-height:1.03;letter-spacing:-2px}
+.hero h1 span{background:linear-gradient(90deg,#65e890,var(--gold));-webkit-background-clip:text;color:transparent}
+.hero p{margin-top:18px;color:var(--muted);font-size:17px;line-height:1.8;max-width:680px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.btn{
+  border:0;border-radius:15px;padding:13px 19px;font-weight:800;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;box-shadow:0 10px 30px rgba(34,197,94,.22)}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.hero-card{
+  position:relative;padding:22px;border:1px solid var(--border);border-radius:28px;
+  background:linear-gradient(145deg,var(--card),var(--card2));box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.hero-card:before{
+  content:"";position:absolute;width:170px;height:170px;border-radius:50%;
+  background:rgba(34,197,94,.12);filter:blur(5px);top:-80px;right:-50px;
+}
+.hero-app{display:flex;align-items:center;gap:16px;position:relative}
+.hero-app img{width:84px;height:84px;border-radius:22px;object-fit:cover;border:1px solid var(--border)}
+.hero-app h3{font-size:23px}.hero-app p{margin:5px 0 0;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}
+.stat{padding:13px;border-radius:16px;background:var(--card);border:1px solid var(--border);text-align:center}
+.stat b{display:block;font-size:16px}.stat small{color:var(--muted);font-size:11px}
+
+/* Sections */
+section{padding:42px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}
+.section-head h2{font-size:30px}
+.section-head p{color:var(--muted);margin-top:5px}
+.search{
+  width:min(360px,100%);display:flex;align-items:center;gap:10px;
+  padding:12px 14px;border:1px solid var(--border);border-radius:15px;background:var(--card);
+}
+.search input{width:100%;border:0;outline:0;background:transparent;color:var(--text);font-size:15px}
+.search input::placeholder{color:var(--muted)}
+
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.app-card{
+  border:1px solid var(--border);background:linear-gradient(145deg,var(--card),var(--card2));
+  border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transition:.25s;
+}
+.app-card:hover{transform:translateY(-5px)}
+.app-cover{height:205px;background:#0b1713;overflow:hidden}
+.app-cover img{width:100%;height:100%;object-fit:cover}
+.app-body{padding:18px}
+.app-top{display:flex;gap:13px;align-items:center}
+.app-top img{width:66px;height:66px;border-radius:18px;object-fit:cover;border:1px solid var(--border)}
+.app-title{font-size:19px;font-weight:850}.developer{font-size:12px;color:var(--muted);margin-top:3px}
+.description{color:var(--muted);font-size:13px;line-height:1.7;margin:15px 0}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:11px;padding:6px 9px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted)}
+.app-actions{display:flex;gap:9px;margin-top:16px}
+.app-actions .btn{flex:1;padding:11px 10px;font-size:13px}
+
+.empty{display:none;text-align:center;padding:35px;color:var(--muted);border:1px dashed var(--border);border-radius:20px}
+
+/* Feature cards */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.feature{
+  padding:21px;border:1px solid var(--border);background:var(--card);
+  border-radius:21px;transition:.2s
+}
+.feature:hover{transform:translateY(-3px)}
+.feature-icon{font-size:28px}.feature h3{margin-top:11px}.feature p{color:var(--muted);font-size:13px;line-height:1.7;margin-top:6px}
+
+/* Future sections */
+.future{
+  border:1px solid var(--border);border-radius:25px;padding:28px;
+  background:linear-gradient(145deg,var(--card),var(--card2));text-align:center;
+}
+.future .big{font-size:42px}.future h2{margin-top:9px}.future p{color:var(--muted);line-height:1.8;margin:8px auto 0;max-width:650px}
+.future-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:17px}
+
+/* Footer */
+footer{margin-top:40px;padding:35px 0;border-top:1px solid var(--border);color:var(--muted)}
+.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{color:var(--text);font-weight:800}
+.footer-links{display:flex;gap:15px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--primary)}
+.copy{text-align:center;margin-top:25px;font-size:12px}
+
+/* Toast */
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);
+  background:#101b17;color:white;padding:13px 18px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);
+  opacity:0;pointer-events:none;transition:.25s;z-index:200;font-size:13px
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:850px){
+  .hero-grid{grid-template-columns:1fr}
+  .app-grid,.feature-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .nav{min-height:64px}
+  .brand span{font-size:15px}
+  .brand img{width:39px;height:39px}
+  .hero{padding-top:48px}
+  .hero h1{letter-spacing:-1px}
+  .section-head{align-items:stretch;flex-direction:column}
+  .app-grid,.feature-grid{grid-template-columns:1fr}
+  .app-cover{height:220px}
+  .hero-buttons .btn{flex:1}
+  .stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <img src="https://www.dropbox.com/scl/fi/6bqadp9qpofjxnw8azxfh/file_00000000aa248211992376317a3c4e37.png?rlkey=aomakzmw8ks51k4ur1zg0bqac&st=6m741yv4&dl=1" alt="Quran and Tajweed Logo">
+      <span>Quran and Tajweed</span>
+    </a>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" title="Theme">☀️</button>
+      <a class="icon-btn" href="#contact" title="Contact">✉️</a>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">🕌 ইসলামিক অ্যাপস & শিক্ষা</div>
+      <h1>Quran & <span>Tajweed</span></h1>
+      <p>
+        কুরআন ও তাজবীদ শিক্ষা, ইসলামিক জ্ঞান এবং ভবিষ্যতে গজল সংগ্রহ—
+        সবকিছু এক জায়গায়। নতুন অ্যাপ ও নতুন ইসলামিক কনটেন্ট ধীরে ধীরে এখানে যোগ করা হবে।
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#apps">📱 অ্যাপ দেখুন</a>
+        <a class="btn btn-ghost" href="#future">✨ Coming Soon</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-app">
+        <img src="https://www.dropbox.com/scl/fi/6bqadp9qpofjxnw8azxfh/file_00000000aa248211992376317a3c4e37.png?rlkey=aomakzmw8ks51k4ur1zg0bqac&st=6m741yv4&dl=1" alt="App Logo">
+        <div>
+          <h3>Quran and Tajweed</h3>
+          <p>Developed by Arif</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>2.5.2.4</b><small>Version</small></div>
+        <div class="stat"><b>31.87 MB</b><small>Size</small></div>
+        <div class="stat"><b>Arif</b><small>Developer</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>📱 Our Apps</h2>
+        <p>আপনার ইসলামিক অ্যাপগুলো এখান থেকে ডাউনলোড করুন।</p>
+      </div>
+      <label class="search">
+        🔍
+        <input id="searchInput" type="search" placeholder="অ্যাপ খুঁজুন...">
+      </label>
+    </div>
+
+    <div class="app-grid" id="appGrid">
+
+      <article class="app-card" data-name="quran and tajweed tajweed quran">
+        <div class="app-cover">
+          <img src="https://www.dropbox.com/scl/fi/6bqadp9qpofjxnw8azxfh/file_00000000aa248211992376317a3c4e37.png?rlkey=aomakzmw8ks51k4ur1zg0bqac&st=34um41ha&dl=1" alt="Quran and Tajweed">
+        </div>
+        <div class="app-body">
+          <div class="app-top">
+            <img src="https://www.dropbox.com/scl/fi/6bqadp9qpofjxnw8azxfh/file_00000000aa248211992376317a3c4e37.png?rlkey=aomakzmw8ks51k4ur1zg0bqac&st=6m741yv4&dl=1" alt="Quran and Tajweed icon">
+            <div>
+              <div class="app-title">Quran and Tajweed</div>
+              <div class="developer">Developed by Arif</div>
+            </div>
+          </div>
+
+          <p class="description">
+            কুরআন, তাজবীদ শিক্ষা এবং ইসলামিক জ্ঞান শেখার জন্য তৈরি করা অ্যাপ।
+            সামনে আরও নতুন শিক্ষা ও ইসলামিক কনটেন্ট যোগ করা হবে।
+          </p>
+
+          <div class="tags">
+            <span class="tag">📖 Quran</span>
+            <span class="tag">🎓 Tajweed</span>
+            <span class="tag">📦 31.87 MB</span>
+            <span class="tag">v2.5.2.4</span>
+          </div>
+
+          <div class="app-actions">
+            <a class="btn btn-primary"
+               href="https://www.appcreator24.com/app3737440-smv32g"
+               target="_blank" rel="noopener">
+               📥 Download
+            </a>
+            <button class="btn btn-ghost" onclick="showDetails()">ℹ️ Details</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty" id="emptyState">😔 কোনো অ্যাপ পাওয়া যায়নি। অন্য নামে খুঁজে দেখুন।</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>🌙 Website Features</h2>
+        <p>এই সাইটটি ভবিষ্যতে আরও বড় করা যাবে।</p>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-icon">📥</div>
+        <h3>Easy Download</h3>
+        <p>অ্যাপের Download বাটনে চাপলেই সরাসরি AppCreator24 পেজে যাওয়া যাবে।</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔍</div>
+        <h3>Live Search</h3>
+        <p>অ্যাপের সংখ্যা বাড়লেও সার্চ করে দ্রুত প্রয়োজনীয় অ্যাপ খুঁজে পাওয়া যাবে।</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌓</div>
+        <h3>Dark / Light</h3>
+        <p>রাতে ও দিনে আরামদায়কভাবে ব্যবহার করার জন্য Theme পরিবর্তন করা যাবে।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="future">
+  <div class="container">
+    <div class="future">
+      <div class="big">✨</div>
+      <h2>More Islamic Content Coming Soon</h2>
+      <p>
+        এই ওয়েবসাইটে ভবিষ্যতে গজল, তাজবীদ শিক্ষা, ইসলামিক শিক্ষা এবং
+        নতুন নতুন অ্যাপ/কনটেন্ট যোগ করা যাবে।
+      </p>
+      <div class="future-buttons">
+        <button class="btn btn-ghost" onclick="comingSoon('🎵 গজল বিভাগ')">🎵 গজল</button>
+        <button class="btn btn-ghost" onclick="comingSoon('📚 তাজবীদ শিক্ষা')">📚 তাজবীদ শিক্ষা</button>
+        <button class="btn btn-ghost" onclick="comingSoon('🕌 ইসলামিক কনটেন্ট')">🕌 ইসলামিক কনটেন্ট</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="future">
+      <div class="big">👨‍💻</div>
+      <h2>Developed by Arif</h2>
+      <p>Contact / Social: <b>caption1.0</b></p>
+      <div class="future-buttons">
+        <button class="btn btn-primary" onclick="copyContact()">📋 Copy Contact</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">📖 Quran and Tajweed</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#apps">Apps</a>
+        <a href="#future">Coming Soon</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="copy">© <span id="year"></span> Quran and Tajweed • Developed by Arif</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const cards = [...document.querySelectorAll(".app-card")];
+const emptyState = document.getElementById("emptyState");
+const toast = document.getElementById("toast");
+
+searchInput.addEventListener("input", () => {
+  const q = searchInput.value.trim().toLowerCase();
+  let found = 0;
+  cards.forEach(card => {
+    const match = card.dataset.name.includes(q);
+    card.style.display = match ? "" : "none";
+    if(match) found++;
+  });
+  emptyState.style.display = found ? "none" : "block";
+});
+
+function showDetails(){
+  alert(
+    "Quran and Tajweed\\n\\n" +
+    "Version: 2.5.2.4\\n" +
+    "Size: 31.87 MB\\n" +
+    "Developer: Arif\\n\\n" +
+    "What's New: Coming Soon."
+  );
+}
+
+function comingSoon(name){
+  showToast(name + " — Coming Soon ✨");
+}
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+}
+
+function copyContact(){
+  navigator.clipboard?.writeText("caption1.0").then(
+    () => showToast("Contact copied: caption1.0"),
+    () => showToast("Contact: caption1.0")
+  );
+}
+
+const themeBtn = document.getElementById("themeBtn");
+const savedTheme = localStorage.getItem("qnt-theme");
+if(savedTheme === "light"){
+  document.body.classList.add("light");
+  themeBtn.textContent = "🌙";
+}
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  const light = document.body.classList.contains("light");
+  localStorage.setItem("qnt-theme", light ? "light" : "dark");
+  themeBtn.textContent = light ? "🌙" : "☀️";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+  </html>
+  

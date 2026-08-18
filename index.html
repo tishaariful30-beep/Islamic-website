@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#071b16">
-<meta name="description" content="Quran and Tajweed — ইসলামিক অ্যাপ, তাজবীদ শিক্ষা ও গজল সংগ্রহ।">
+<meta name="description" content="Quran and Tajweed — ইসলামিক অ্যাপ, Dictionary Book, তাজবীদ শিক্ষা ও গজল সংগ্রহ।">
 <title>Quran and Tajweed | Islamic Apps</title>
 
 <style>
@@ -246,7 +246,7 @@ footer{margin-top:40px;padding:35px 0;border-top:1px solid var(--border);color:v
     <div class="section-head">
       <div>
         <h2>📱 Our Apps</h2>
-        <p>আপনার ইসলামিক অ্যাপগুলো এখান থেকে ডাউনলোড করুন।</p>
+        <p>আপনার ইসলামিক ও শিক্ষা অ্যাপগুলো এখান থেকে ডাউনলোড করুন।</p>
       </div>
       <label class="search">
         🔍
@@ -288,6 +288,29 @@ footer{margin-top:40px;padding:35px 0;border-top:1px solid var(--border);color:v
                📥 Download
             </a>
             <button class="btn btn-ghost" onclick="showDetails()">ℹ️ Details</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="app-card" data-name="dictionary book dictionary english bangla">
+        <div class="app-cover">
+          <img src="https://www.dropbox.com/scl/fi/wipkyd40v3oymdnl4cjfu/4075523_ico.png?rlkey=14614hb9apped9hq1ox1dwcge&st=f6fg87rh&dl=1" alt="Dictionary Book">
+        </div>
+        <div class="app-body">
+          <div class="app-top">
+            <img src="https://www.dropbox.com/scl/fi/wipkyd40v3oymdnl4cjfu/4075523_ico.png?rlkey=14614hb9apped9hq1ox1dwcge&st=f6fg87rh&dl=1" alt="Dictionary Book icon">
+            <div>
+              <div class="app-title">Dictionary Book</div>
+              <div class="developer">Developed by Arif</div>
+            </div>
+          </div>
+          <p class="description">ইংরেজি ও বাংলা শব্দার্থ শেখার জন্য তৈরি Dictionary Book অ্যাপ। শিক্ষার্থীদের জন্য সহজ ও সুন্দরভাবে শব্দ শেখার একটি উপকারী অ্যাপ।</p>
+          <div class="tags">
+            <span class="tag">📖 Dictionary</span><span class="tag">🔤 English</span><span class="tag">🇧🇩 বাংলা</span><span class="tag">v1.1.2</span>
+          </div>
+          <div class="app-actions">
+            <a class="btn btn-primary" href="https://www.appcreator24.com/app4075523-730js9" target="_blank" rel="noopener">📥 Download</a>
+            <button class="btn btn-ghost" onclick="showDictionaryDetails()">ℹ️ Details</button>
           </div>
         </div>
       </article>
@@ -363,7 +386,7 @@ footer{margin-top:40px;padding:35px 0;border-top:1px solid var(--border);color:v
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">📖 Quran and Tajweed</div>
+      <div class="footer-brand">🕌 Quran and Tajweed</div>
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#apps">Apps</a>
@@ -404,6 +427,12 @@ function showDetails(){
   );
 }
 
+
+function showDictionaryDetails(){
+  showToast("📖 Dictionary Book • v1.1.2");
+  setTimeout(()=>alert("Dictionary Book\n\nVersion: 1.1.2\nDeveloper: Arif\n\nDownload বাটনে চাপলে AppCreator24 অ্যাপ পেজে যাবে।\n\n৬টি Screenshot যুক্ত করা হয়েছে।"),150);
+}
+
 function comingSoon(name){
   showToast(name + " — Coming Soon ✨");
 }
@@ -439,5 +468,5 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
-  </html>
+        </html>
   
